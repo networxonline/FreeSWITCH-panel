@@ -14,26 +14,7 @@
 <div id="main_header">
 	<div id="logo">FreeSWITCH panel</div>
 	<div class="top_item" id="top_about">&copy;</div>
-	<div class="top_item" id="top_commands">commands</div>
-	<div class="top_item" id="top_settings">settings</div>
 </div>
-
-<div id="settings" class="block_green">
-	<h3>Settings</h3>
-	<form>
-	<input type="checkbox" id="opt_ext" name="opt_ext" value="opt_ext"> Extensions (SIP Sofia)<br />
-	<input type="checkbox" id="opt_ss" name="opt_ss" value="opt_ss"> SIP Sofia status<br />
-	<input type="checkbox" id="opt_call" name="opt_call" value="opt_call"> <select id="opt_call_func" name="opt_call_func" value="opt_call_func">
-			<option value="channels">Channels</option>
-			<option value="calls">Calls</option>
-			<option value="detailed_calls">Detailed calls</option>
-			</select><br />
-	<input type="checkbox" id="opt_conf" name="opt_conf" value="opt_conf"> Conferences<br />
-	<input type="checkbox" id="opt_ftdm" name="opt_ftdm" value="opt_ftdm"> FreeTDM channels<br />
-	<br />
-	<input type="button" value="Save" id="set_save"> <input type="button" value="Cancel" id="set_cancel">
-	</form>
-</div>	
 
 <div id="about" class="block_red">
 	<h3>About</h3>
@@ -113,58 +94,11 @@
 	</table>
 </div>
 
-<div id="cmdresult" class="block_red">
-	<h3>Command result</h3>
-	<div id="cmd_result"></div>
-</div>
-
-<div id="extensions" class="block_green">
-	<h3>SIP registrations</h3>
-	<table class="datatable" id="table_ext"></table>
-</div>	
-
-<div id="sofiastatuses" class="block_green">
-	<h3>Sofia status</h3>
-	<table class="datatable" id="table_ss"></table>
-</div>	
-
-<div id="calls" class="block_blue">
-	<h3>Calls</h3>
-	<table class="datatable" id="table_call">
-	</table>
-</div>
-
 <div id="conferences" class="block_yellow">
 	<h3>Conferences</h3>
 	<table class="datatable" id="table_conf">
 	<thead></thead>
 	</table>
-</div>
-
-<div id="freetdms" class="block_yellow">
-	<h3>FreeTDM</h3>
-	<table class="datatable" id="table_ftdm">
-	</table>
-</div>
-
-<div class="block_red settings_div" id="exts_settings">
-	<h3>Extensions columns</h3>
-	<form id="exts_form_set"></form>
-</div>
-
-<div class="block_red settings_div" id="ftdm_settings">
-	<h3>FreeTDM columns</h3>
-	<form id="ftdm_form_set"></form>
-</div>
-
-<div class="block_red settings_div" id="call_settings">
-	<h3>Calls columns</h3>
-	<form id="call_form_set"></form>
-</div>
-
-<div class="block_red settings_div" id="ss_settings">
-	<h3>Sofia status columns</h3>
-	<form id="ss_form_set"></form>
 </div>
 
 </body>
