@@ -1,7 +1,7 @@
 <?php
 	$FreeSWITCHserver = '127.0.0.1';		// event_socket.xml param: listen-ip
 	$FreeSWITCHport = 8021;					// event_socket.xml param: listen-port
-	$FreeSWITCHpassword = 'zimbra7tumbra';	// event_socket.xml param: password
+	$FreeSWITCHpassword = file_get_contents('.password');	// event_socket.xml param: password
 	$SofiaProfiles = array('internal');		// write empty array if not used: array();
 	$FreeTDMspans = array('pri');			// write empty array if not used: array();
 	$disableXML = false;					// You can disable retrieve XML data if error found
