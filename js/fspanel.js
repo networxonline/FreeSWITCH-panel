@@ -4,6 +4,11 @@ function sortTable(nr) {
 	aAsc[nr] = aAsc[nr]=='asc'?'desc':'asc';
 	$('#table_ext>tbody>tr').tsort('td:eq('+nr+')', {order:aAsc[nr]});
 }
+function getURLParameter(name) {
+    return decodeURI(
+            (RegExp(name + '=' + '(.+?)(&|$)').exec(location.search)||[,null])[1]
+    );
+}
 // Form with fields list
 function createForm(flds, showflds) {
 	var s = '<table class="header_select">';
@@ -577,7 +582,7 @@ var ftdmdata = {
 }
 //-------------------------------- COMET (to server-side transport instead of Ajax)
 var comet = {
-	server		: './fscontrol.php',
+	server		: './fscontrol.php?conf=' + getURLParameter('conf'),
 	connection	: false, // ActiveX for IE, iframe for other
 	iframediv	: false, // internal for IE
 	form		: false, // Form for POST data
