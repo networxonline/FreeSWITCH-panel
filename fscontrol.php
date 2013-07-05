@@ -8,6 +8,15 @@
 
 	$t = time();
 
+session_start();
+if ( ! $_SESSION['bridge_id'])
+{
+    #echo <<<EOF
+        #You need to login
+#EOF;
+    #exit;
+}
+
 function clearFlush() {
 //	echo(str_repeat(' ', 2048));
 	if (ob_get_length()) {
@@ -191,7 +200,7 @@ function findID($arr, $id) {
 	}
 	return false;
 }
-class fsData {
+class fsData {
 	const cPart1NotFound = -2;
 	const cPart2NotFound = 2;
 	const cField1NotFound = -1;
@@ -479,9 +488,17 @@ class fsConf extends fsData {
 			if (stripos($x[$i], 'Conference ') !== false) {
 				$y = explode(' ', $x[$i]);
 				$conf = $y[1]; // Conference id
+                if (isset($_REQUEST['conf']) && $_REQUEST['conf'] != 'null' && $conf != $_REQUEST['conf'])
+                {
+                    continue;
+                }
 				if ((!empty($this->filter)) & ($conf != $this->filter)) continue;
 				$d[$conf] = array();
 			} else {
+                if (isset($_REQUEST['conf']) && $_REQUEST['conf'] != 'null' && $conf != $_REQUEST['conf'])
+                {
+                    continue;
+                }
 				$y = explode(";", $x[$i]);
 				if (count($y) < 3) continue;
 				// variant 1:
@@ -762,7 +779,7 @@ $useSofiaStatus = false;
 $useFTDM = false;
 
 $src = array();
-//$src = array('exts'=>array()); // for debug
+//$src = array('confs'=>array()); // for debug
 if (array_key_exists('data', $_POST)) {
 	$src = json_decode($_POST['data'], true);
 }
@@ -864,4 +881,3 @@ $sock->disconnect();
 // Restart script on client side!
 print('<script type="text/javascript">window.parent.comet.restart();</script>');
 clearFlush();
-?>
