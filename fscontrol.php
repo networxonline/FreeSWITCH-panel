@@ -9,6 +9,11 @@
 	$t = time();
 
 session_start();
+if ($_SESSION['conf'])
+{
+	$_REQUEST['conf'] = $_SESSION['conf'];
+}
+
 if ( ! $_SESSION['bridge_id'])
 {
     #echo <<<EOF
